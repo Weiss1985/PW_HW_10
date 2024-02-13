@@ -1,0 +1,81 @@
+
+.quote {
+    padding: 10px;
+    margin-bottom: 30px;
+    border: 1px solid #333333;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px #333333;
+}
+
+.quote span.text {
+    display: block;
+    margin-bottom: 5px;
+    font-size: large;
+    font-style: italic;
+}
+
+
+.tag {
+    padding: 5px 5px;
+    border-radius: 6px;
+    color: white;
+    font-size: small;
+    background-color: #3071e2;
+}
+
+.quote small.author {
+    font-weight: bold;
+    color: #3677E8;
+}
+
+.pager li{
+    display: inline;    
+}
+
+.pager .next>a,
+.pager .next>span {
+    float: right;
+}
+
+.pager li>a,
+.pager li>span {
+    display: inline-block;
+    padding: 5px 14px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 15px;
+}
+
+.disabled{
+    color: #edbebe;
+    cursor: not-allowed;
+}
+
+.container10 {
+  position: fixed;
+  top: 50px; /* Adjust as needed */
+  right: 10px; /* Adjust as needed */
+}
+
+.tags-box {
+  padding: 20px;
+}
+
+.add {
+    
+    font-weight: bold;
+    color: #3677E8;
+}
+
+.login {
+
+  position: fixed;
+  top: 10px; /* Adjust as needed */
+  right: 10px; /* Adjust as needed */
+
+}
+
+
+
+
+

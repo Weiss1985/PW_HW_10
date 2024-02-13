@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="veiwport" />
+  <title>Homework10</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  {%load static %}
+  <link rel="stylesheet" href="{% static 'quotes/style.css' %}" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="row header-box pt-4 mb-4">
+      <h1>
+        <a href="/" style="text-decoration: none">Quotes to Scrape</a>
+      </h1>
+      <div class="col-md-4">
+        <nav style="margin-bottom: 30px; border-bottom: 3px solid; padding-left: 30px">
+          {% if user.is_authenticated %}
+          <ul>
+            <h2> Welcome <b>{{ user.username }}! </b> </h2>
+              <a href="{% url 'users:logout' %}" type="button" class="btn btn-danger btn-sm login" >Logout</a> 
+          </ul>
+
+          <ul class="btn-group" role="group" >
+              <a href="{% url 'users:addauthor' %}" role="button" type="button" class="btn btn-outline-success btn-sm" >Add Author</a>
+              <a href="{% url 'users:addquote' %}"  role="button" type="button" class="btn btn-outline-success btn-sm" >Add Quote</a>
+          </ul>
+
+          {% else %}
+          <ul class=" login">
+            <a href="{% url 'users:signup' %}" type="button" class="btn btn-success btn-sm">SignUp</a>
+            <a href="{% url 'users:login' %}"  type="button" class="btn btn-success btn-sm"  >Login</a>
+          </ul>
+          {% endif %}
+        </nav>
+      </div>
+    </div>
+
+    {% block content%} {% endblock %}
+  </div>
+
+</body>
+
+</html>

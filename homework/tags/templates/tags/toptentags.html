@@ -1,0 +1,18 @@
+{% extends "quotes/base.html" %} {% load extract %} {% block content %}
+
+  <div class="tags-box">
+    <a  style="text-decoration: none">
+      <h1> Top Ten Tags</h1>
+    </a>
+    {%for tag in toptags%}
+    <div class="top10" itemscope="" itemtype="http://schema.org/CreativeWork">
+      <li>
+        <span class="text" itemprop="text" style="font-weight: bold">
+          <a class="tag" style="font-size: {{ tag.quote_count|add:tag.quote_count }}px" href="/tag/{{ tag.name }}"
+            role="button">{{ tag.name }}</a>
+      </li>
+    </div>
+    {%endfor%}
+  </div>
+
+{% endblock %}
