@@ -4,6 +4,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import RegisterForm, LoginForm, AuthorForm, QuoteForm
 from quotes.models import Tag, Author
+from django.contrib.auth.views import PasswordResetView
+from django.contrib.messages.views import SuccessMessageMixin
+from django.urls import reverse_lazy
+
 
 def signupuser(request):
     if request.user.is_authenticated:
@@ -79,6 +83,20 @@ def addauthor(request):
         else:
             return render(request, 'users/addauthor.html', {'form': form})
     return render(request, 'users/addauthor.html', context={"form": AuthorForm()})
+
+
+@login_required
+def profile(request):
+    return render(request, 'users/profile.html')
+
+
+class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
+    template_name = 'users/password_reset.html'
+    email_template_name = 'users/password_reset_email.html'
+    html_email_template_name = 'users/password_reset_email.html'
+    success_url = reverse_lazy('users:password_reset_done')
+    success_message = "An email with instructions to reset your password has been sent to %(email)s."
+    subject_template_name = 'users/password_reset_subject.txt'
 
 
 

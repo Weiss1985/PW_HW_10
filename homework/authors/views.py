@@ -7,6 +7,3 @@ def main(request, author=""):
     a = get_object_or_404(Author, fullname=author)
     return render(request, "authors/authors.html", context = vars(a))
     
-from django.shortcuts import render
-
-# Create your views here.
